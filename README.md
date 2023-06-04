@@ -1,0 +1,2 @@
+This repository is my Spring RestTemplate mssc-brewery-client application built in the [Spring Boot Microservices with Spring Cloud Beginner to Guru
+](https://www.udemy.com/course/spring-boot-microservices-with-spring-cloud-beginner-to-guru) Udemy online course.
