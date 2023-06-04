@@ -47,4 +47,17 @@ class CustomerClientImplTest {
 
         assertNotNull(updatedDto);
     }
+
+    @Test
+    void testDeleteCustomer() {
+        CustomerDto newCustomer = CustomerDto.builder()
+                .name("B Halls")
+                .build();
+
+        CustomerDto savedDto = customerClient.saveNewCustomer(newCustomer);
+
+        customerClient.deleteCustomer(savedDto.getId());
+
+//        Verify customer no longer exists
+    }
 }

@@ -10,4 +10,6 @@ public interface CustomerClient {
     CustomerDto saveNewCustomer(CustomerDto customerDto);
 
     CustomerDto updateCustomer(CustomerDto customerDto);
+
+    void deleteCustomer(UUID customerId);
 }

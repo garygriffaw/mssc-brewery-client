@@ -42,4 +42,10 @@ public class CustomerClientImpl implements CustomerClient {
 
         return getCustomerById(customerDto.getId());
     }
+
+    @Override
+    public void deleteCustomer(UUID customerId) {
+        RestTemplate restTemplate = restTemplateBuilder.build();
+        restTemplate.delete(CUSTOMER_ID_PATH_V1, customerId);
+    }
 }
