@@ -21,4 +21,15 @@ class CustomerClientImplTest {
 
         assertNotNull(customerDto);
     }
+
+    @Test
+    void testCreateNewCustomer() {
+        CustomerDto newCustomer = CustomerDto.builder()
+                .name("B Halls")
+                .build();
+
+        CustomerDto savedDto = customerClient.saveNewCustomer(newCustomer);
+
+        assertNotNull(savedDto);
+    }
 }
