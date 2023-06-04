@@ -6,6 +6,7 @@ import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.net.URI;
 import java.util.UUID;
 
 @RequiredArgsConstructor
@@ -20,6 +21,16 @@ public class BreweryClientImpl implements BreweryClient {
     @Override
     public BeerDto getBeerById(UUID beerId) {
         RestTemplate restTemplate = restTemplateBuilder.build();
+
         return restTemplate.getForObject(BEER_BY_ID_PATH_V1, BeerDto.class, beerId);
+    }
+
+    @Override
+    public BeerDto saveNewBeer(BeerDto beerDto) {
+        RestTemplate restTemplate = restTemplateBuilder.build();
+
+        URI uri = restTemplate.postForLocation(BEER_PATH_V1, beerDto);
+
+        return restTemplate.getForObject(uri.getPath(), BeerDto.class);
     }
 }
