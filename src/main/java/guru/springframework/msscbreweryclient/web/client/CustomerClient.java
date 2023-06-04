@@ -8,4 +8,6 @@ public interface CustomerClient {
     CustomerDto getCustomerById(UUID customerId);
 
     CustomerDto saveNewCustomer(CustomerDto customerDto);
+
+    CustomerDto updateCustomer(CustomerDto customerDto);
 }

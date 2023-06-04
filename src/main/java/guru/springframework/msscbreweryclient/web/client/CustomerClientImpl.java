@@ -33,4 +33,13 @@ public class CustomerClientImpl implements CustomerClient {
 
         return restTemplate.getForObject(uri.getPath(), CustomerDto.class);
     }
+
+    @Override
+    public CustomerDto updateCustomer(CustomerDto customerDto) {
+        RestTemplate restTemplate = restTemplateBuilder.build();
+
+        restTemplate.put(CUSTOMER_ID_PATH_V1, customerDto, customerDto.getId());
+
+        return getCustomerById(customerDto.getId());
+    }
 }
