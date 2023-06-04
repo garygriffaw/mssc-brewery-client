@@ -32,4 +32,20 @@ class BreweryClientImplTest {
 
         assertNotNull(savedBeerDto);
     }
+
+    @Test
+    void testUpdateBeer() {
+        BeerDto newBeerDto = BeerDto.builder()
+                .beerName("New beer")
+                .beerStyle("IPA")
+                .build();
+
+        BeerDto savedBeerDto = breweryClient.saveNewBeer(newBeerDto);
+
+        final String updateStyle = "Lager";
+        savedBeerDto.setBeerStyle(updateStyle);
+        BeerDto updatedBeerDto = breweryClient.updateBeer(savedBeerDto);
+
+        assertNotNull(updatedBeerDto.getBeerStyle(), updateStyle);
+    }
 }
