@@ -48,4 +48,18 @@ class BreweryClientImplTest {
 
         assertNotNull(updatedBeerDto.getBeerStyle(), updateStyle);
     }
+
+    @Test
+    void testDeleteBeer() {
+        BeerDto newBeerDto = BeerDto.builder()
+                .beerName("New beer")
+                .beerStyle("IPA")
+                .build();
+
+        BeerDto savedBeerDto = breweryClient.saveNewBeer(newBeerDto);
+
+        breweryClient.deleteBeer(savedBeerDto.getId());
+
+//      verify beer no longer exists
+    }
 }
